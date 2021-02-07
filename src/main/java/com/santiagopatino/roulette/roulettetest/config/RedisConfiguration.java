@@ -1,5 +1,4 @@
 package com.santiagopatino.roulette.roulettetest.config;
-
 import com.santiagopatino.roulette.roulettetest.Bet;
 import com.santiagopatino.roulette.roulettetest.domain.Roulette;
 import org.springframework.context.annotation.Bean;
@@ -13,14 +12,12 @@ public class RedisConfiguration {
     JedisConnectionFactory jedisConnectionFactory() {
         return new JedisConnectionFactory();
     }
-
     @Bean
     RedisTemplate<String, Roulette> redisTemplateRoulette(){
         final RedisTemplate<String, Roulette> redisTemplateRoulette = new RedisTemplate<>();
         redisTemplateRoulette.setConnectionFactory(jedisConnectionFactory());
         return redisTemplateRoulette;
     }
-
     @Bean
     RedisTemplate<String, Bet> redisTemplateBet(){
         final RedisTemplate<String, Bet> redisTemplateBet = new RedisTemplate<>();
